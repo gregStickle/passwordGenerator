@@ -6,12 +6,14 @@ import random
 import string
 import pyperclip
 
-def generate_password(length=15):
+passwordLen = input("Enter the desired password length: ")
+
+def generate_password(length=int(passwordLen)):
     password = []
     for _ in range(length):
         choice = random.choices(
             [getNumber(), getLetter(), getCharacter()], 
-            weights=[3, 6, 1], # Increase weights to increase frequency of a character
+            weights=[3, 5, 2], # Increase weights to increase frequency of a character
             k=1
         )
         password.append(choice[0])
